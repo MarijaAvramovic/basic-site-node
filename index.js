@@ -1,15 +1,15 @@
 const http = require('http');
+const fs = require('fs');
 
 const server = http.createServer((req, res) => {
    if (req.url === '/') {
-        res.end('Welcome to the Home Page');
+        res.end(fs.readFileSync('index.html'));     
    } else if (req.url === '/about') {
-        res.end('Welcome to the About Page');
+        res.end(fs.readFileSync('about.html'));     
    } else if (req.url === '/contact-me') {
-        res.end('Welcome to the Contact Page');
+        res.end(fs.readFileSync('contact-me.html'));     
    } else {
-         
-        res.end('404 - Page Not Found');
+        res.end(fs.readFileSync('404.html'));
    }
 });
 
